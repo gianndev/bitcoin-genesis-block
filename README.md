@@ -12,54 +12,17 @@ What we need to do is go and retrieve the first block of the Bitcoin blockchain.
 
 ### 1.1 Install Bitcoin Core
 
-Bitcoin by definition is a software, so to work with Bitcoin we need to install a software. The software in question is called *Bitcoin Core* and it is officially the software that runs the Bitcoin protocol. 
+Bitcoin Core is the reference implementation of the Bitcoin protocol. To install, simply go to the official download page and pick the version that matches your system and preference (CLI or GUI):
 
-Follow the instructions to install *Bitcoin Core* on your operating system. When following these instructions, feel free to choose whether to download the CLI (command line only) or GUI (graphical interface) version. For example, I chose to download the terminal version.
+👉 [https://bitcoincore.org/en/download/](https://bitcoincore.org/en/download/)
 
-#### **Windows**
+Follow the on‑screen instructions there for Windows, macOS, or Linux; the page includes checksums and signature‑verification steps to ensure you get an authentic, up‑to‑date build.
 
-Download the installer from [bitcoincore.org](https://bitcoincore.org/) and follow the instructions
+> **Tip:**
+>
+> * If you plan to script or interact programmatically, choose the **CLI** (command‑line) version.
+> * If you prefer a graphical wallet with point‑and‑click, choose the **GUI** (Bitcoin Qt) version.
 
-To verify the installation, open the command-prompt and type:  
+### 1.2 Download only the first 20 blocks
 
-```bash
-bitcoin-cli --version
-```
-
-#### **MacOS**
-
-Use [Homebrew](https://brew.sh/):  
-
-```bash
-brew install bitcoin
-```
-
-Homebrew installs packages in a dedicated directory (e.g. `/opt/homebrew`) and creates automatic symlinks. Check with:
- 
-```bash
-bitcoin-cli --version
-```
-
-#### **Linux (Ubuntu/Debian)**
-
-Install Bitcoin Core and necessary dependencies:
-
-```bash
-sudo apt install bitcoind jq xxd # Bitcoin CLI + decoding tools
-```
-
-If you prefer GUI:
-
-```bash
-sudo apt install bitcoin-qt
-```
-
-Verify installation:
-
-```bash
-bitcoind --version
-``` 
-
----
-
-> NOTE: I have tested my tutorial firsthand on my Windows and Ubuntu devices, so for MacOS or other Linux distros there may be some inaccuracies. If you find any problems feel free to open an issue to report it.
+TODO
