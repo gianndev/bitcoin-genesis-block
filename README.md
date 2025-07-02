@@ -25,4 +25,40 @@ Follow the on‑screen instructions there for Windows, macOS, or Linux; the page
 
 ### 1.2 Download only the first 20 blocks
 
-TODO
+To avoid downloading the entire blockchain, we'll instruct our node to stop syncing after the first 20 blocks and prune everything else automatically.
+
+1. Create or edit your Bitcoin configuration file (`bitcoin.conf`), usually located in:
+
+   * **Linux/macOS:** `~/.bitcoin/bitcoin.conf`
+   * **Windows:** `%APPDATA%\Bitcoin\bitcoin.conf`
+
+2. Add the following lines:
+
+   ```ini
+   # Prune mode: limits disk usage (in megabytes)
+   prune=550
+
+   # Stop syncing when we reach block height 20
+   stopatheight=20
+   ```
+
+3. Start Bitcoin Core in daemon (background) mode:
+
+   ```bash
+   bitcoind -daemon
+   ```
+
+4. Monitor sync progress (will stop at block 20):
+
+   ```bash
+   bitcoin-cli getblockchaininfo | jq '.blocks'
+   ```
+
+   You should see the `blocks` count climb until it reaches `20`, then the node will gracefully shut down.
+
+5. Your data directory now contains only the first 20 blocks (\~550 MB), including the genesis block.
+
+---
+
+## STEP 2: Extracting the Genesis Block Hash
+ TODO
